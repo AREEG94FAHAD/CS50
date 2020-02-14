@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block main %}
+
+
+
+
+
+<h2 class="display-1">FORM</h2>
+
+<div class="table-responsive table-hover">
+    <table id="example" class="table" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Address</th>
+                <th>Address2</th>
+                <th>City</th>
+                <th>Select</th>
+                <th>Zip</th>
+                <th>Up to 18</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submit in forms %}
+            <tr>
+                <td>{{submit[0]}}</td>
+                <td>{{submit[1]}}</td>
+                <td>{{submit[2]}}</td>
+                <td>{{submit[3]}}</td>
+                <td>{{submit[4]}}</td>
+                <td>{{submit[5]}}</td>
+                <td>{{submit[6]}}</td>
+                <td>{{submit[7]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+
+        $('table')['DataTable']({'info':![],'ordering':!![],'paging':![],'searching':![]});
+
+</script>
+{% endblock %}

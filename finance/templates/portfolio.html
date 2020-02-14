@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    portfolio
+{% endblock %}
+
+{% block main %}
+ <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>$10,000.00</td>
+            </tr>
+        </tfoot>
+        <tbody>
+
+        {% for n in b %}
+            <tr>
+                <td> {{nameofsymbol[n.symbol]['symbol']}}</td>
+                <td> {{nameofsymbol[n.symbol]['name']}}</td>
+                <td> {{n['totalsymbol']}}</td>
+                <td>{{nameofsymbol[n.symbol]['price']|usd}}</td>
+                <td>{{(nameofsymbol[n.symbol]['price']*n['totalsymbol']|int)|usd}}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td class="j" colspan="4" ">CASH</td>
+
+            <td>{{v|usd}}</td>
+
+        </tr>
+
+
+
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

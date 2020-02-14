@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+<h1 class="mb-3">Form</h1>
+
+<!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+<form class="needs-validation" name="myform" action="/form" method="post" novalidate onsubmit = "return(validate());">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" name="email"class="form-control" id="inputEmail4" placeholder="Email" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text"  name ="address"class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" name="city"class="form-control" id="inputCity" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select  name="select"id="inputState" class="form-control" required>
+        <option selected>Choose...</option>
+        <option value="Iraq">Iraq</option>
+        <option value="Moroco">Moroco</option>
+        <option value="Oman">Oman</option>
+        <option value="Spania">Spania</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" name="zip" class="form-control" id="inputZip" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" name="check" type="checkbox" id="gridCheck" required>
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+    <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+    <button class="btn btn-primary form-group" type="submit">Submit</button>
+</form>
+
+<script type = "text/javascript">
+   <!--
+      // Form validation code will come here.
+      function validate() {
+
+         if( document.myform.email.value == "" ) {
+            alert( "Please provide your Email!" );
+            document.myform.email.focus() ;
+            return false;
+         }
+         if( document.myform.password.value == "" ) {
+            alert( "Please provide your Password!" );
+            document.myform.password.focus() ;
+            return false;
+         }
+         if( document.myform.zip.value == "" || isNaN( document.myForm.Zip.value ) ||
+            document.myform.zip.value.length != 5 ) {
+
+            alert( "Please provide a zip in the format #####." );
+            document.myform.zip.focus() ;
+            return false;
+         }
+         if( document.myform.address.value == "-1" ) {
+            alert( "Please provide your Address!" );
+            return false;
+         }
+         return( true );
+      }
+   //-->
+</script>
+
+{% endblock %}
